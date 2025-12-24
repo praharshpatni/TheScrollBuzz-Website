@@ -68,30 +68,8 @@
   margin-bottom: 1rem;
 }
 
-.footer-logo-icon {
-  width: 2.5rem;
-  height: 2.5rem;
-  background: linear-gradient(to bottom right, #22d3ee, #a855f7);
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.footer-logo-icon span {
-  color: white;
-  font-weight: bold;
-  font-size: 1.25rem;
-}
-
-.footer-logo-text {
-  color: white;
-  font-weight: bold;
-  font-size: 1.25rem;
-}
-
-.footer-logo-accent {
-  color: #22d3ee;
+.footer-logo img {
+  height: 45px;
 }
 
 .footer-brand-description {

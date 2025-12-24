@@ -1,6 +1,7 @@
 import React from 'react';
 import { Heart } from 'lucide-react';
 import './Footer.css';
+import TheScrollBuzzLogo from "./../../Assets/TSB_Final_Logo_PNG.png"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -15,12 +16,13 @@ export default function Footer() {
         <div className="footer-grid">
           <div className="footer-brand">
             <div className="footer-logo">
-              <div className="footer-logo-icon">
+              <img src={TheScrollBuzzLogo} alt="" />
+              {/* <div className="footer-logo-icon">
                 <span>S</span>
               </div>
               <span className="footer-logo-text">
                 The Scroll <span className="footer-logo-accent">Buzz</span>
-              </span>
+              </span> */}
             </div>
             <p className="footer-brand-description">
               Making your brand scroll-worthy through innovative digital solutions,
