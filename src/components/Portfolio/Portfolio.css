@@ -320,20 +320,17 @@
   /* Adjust grid container height */
   .portfolio-grid {
     height: 500px;
-    /* Slightly reduced from 700px */
   }
 
   /* Adjust second slider position */
   .portfolio-grid .second-slider {
     top: 280px;
-    /* Adjusted for medium images */
   }
 
   /* Adjust the min-width calculation for sliders */
   .portfolio-grid .slider,
   .portfolio-grid .second-slider {
     min-width: calc(220px * var(--items)) !important;
-    /* Adjusted for medium images */
   }
 }
 

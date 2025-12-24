@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, MapPin, Send } from 'lucide-react';
 import './Contact.css';
 import {
-  FaTwitter,
+  // FaTwitter,
   FaInstagram,
-  FaLinkedinIn,
-  FaBehance
+  // FaLinkedinIn,
+  // FaBehance,
+  FaFacebookF
 } from "react-icons/fa";
 
 export default function Contact() {
@@ -21,10 +22,11 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
   const socialLinks = [
-    { name: "Instagram", icon: <FaInstagram />, url: "https://instagram.com" },
-    { name: "Twitter", icon: <FaTwitter />, url: "https://twitter.com" },
-    { name: "LinkedIn", icon: <FaLinkedinIn />, url: "https://linkedin.com" },
-    { name: "Behance", icon: <FaBehance />, url: "https://behance.net" },
+    { name: "Instagram", icon: <FaInstagram />, url: "https://www.instagram.com/thescrollbuzz.in/" },
+    // { name: "Twitter", icon: <FaTwitter />, url: "https://twitter.com" },
+    // { name: "LinkedIn", icon: <FaLinkedinIn />, url: "https://linkedin.com" },
+    // { name: "Behance", icon: <FaBehance />, url: "https://behance.net" },
+    { name: "Facebook", icon: <FaFacebookF />, url: "https://www.facebook.com/profile.php?id=61583928221752" },
   ];
 
 
@@ -68,9 +70,9 @@ export default function Contact() {
   };
 
   const contactInfo = [
-    { Icon: Mail, label: 'Email', value: 'hello@thescrollbuzz.com' },
-    { Icon: Phone, label: 'Phone', value: '+1 (555) 123-4567' },
-    { Icon: MapPin, label: 'Location', value: 'San Francisco, CA' },
+    { Icon: Mail, label: 'Email', value: 'info@thescrollbuzz.in' },
+    // { Icon: Phone, label: 'Phone', value: '+1 (555) 123-4567' },
+    { Icon: MapPin, label: 'Location', value: 'Vadodara, Gujarat, INDIA.' },
   ];
 
   return (
@@ -146,14 +148,21 @@ export default function Contact() {
           </div>
 
           <div className={`contact-form-wrapper ${isVisible ? 'visible' : ''}`}>
-            <form onSubmit={handleSubmit} className="contact-form">
+            <form onSubmit={handleSubmit} action="https://api.web3forms.com/submit" method="POST" className="contact-form">
               <div className="contact-form-overlay"></div>
 
+              {/* REQUIRED: Your Access Key */}
+              <input type="hidden" name="access_key" value="d4d064b1-8cdd-458d-9cb1-45eb661a6b2d" />  {/* ← PASTE YOUR KEY HERE */}
+
+              {/* Optional but recommended */}
+              <input type="hidden" name="subject" value="New Contact Form Submission - TheScrollBuzz" />
+              <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />  {/* Anti-spam honeypot */}
+
               <div className="contact-form-content">
+                {/* All your existing fields – keep exactly as they are (name attributes match perfectly) */}
+
                 <div className="contact-form-group">
-                  <label htmlFor="name" className="contact-form-label">
-                    Full Name
-                  </label>
+                  <label htmlFor="name" className="contact-form-label">Full Name</label>
                   <input
                     type="text"
                     id="name"
@@ -167,9 +176,7 @@ export default function Contact() {
                 </div>
 
                 <div className="contact-form-group">
-                  <label htmlFor="email" className="contact-form-label">
-                    Email Address
-                  </label>
+                  <label htmlFor="email" className="contact-form-label">Email Address</label>
                   <input
                     type="email"
                     id="email"
@@ -183,9 +190,7 @@ export default function Contact() {
                 </div>
 
                 <div className="contact-form-group">
-                  <label htmlFor="phone" className="contact-form-label">
-                    Phone Number
-                  </label>
+                  <label htmlFor="phone" className="contact-form-label">Phone Number</label>
                   <input
                     type="tel"
                     id="phone"
@@ -193,14 +198,12 @@ export default function Contact() {
                     value={formData.phone}
                     onChange={handleChange}
                     className="contact-form-input"
-                    placeholder="+1 (555) 123-4567"
+                    placeholder="+91 XXXXX XXXXX"
                   />
                 </div>
 
                 <div className="contact-form-group">
-                  <label htmlFor="service" className="contact-form-label">
-                    Service Interested In
-                  </label>
+                  <label htmlFor="service" className="contact-form-label">Service Interested In</label>
                   <select
                     id="service"
                     name="service"
@@ -220,9 +223,7 @@ export default function Contact() {
                 </div>
 
                 <div className="contact-form-group">
-                  <label htmlFor="message" className="contact-form-label">
-                    Message
-                  </label>
+                  <label htmlFor="message" className="contact-form-label">Message</label>
                   <textarea
                     id="message"
                     name="message"
@@ -236,9 +237,7 @@ export default function Contact() {
                 </div>
 
                 {submitMessage && (
-                  <div className="contact-form-message">
-                    {submitMessage}
-                  </div>
+                  <div className="contact-form-message">{submitMessage}</div>
                 )}
 
                 <button

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
+import ScrollBuzzLogo from "./../../Assets/TSB_Final_Logo_PNG.png"
 
 export default function Navbar({ sections }) {
   const [activeSection, setActiveSection] = useState('hero');
@@ -59,10 +60,10 @@ export default function Navbar({ sections }) {
         <div className="navbar-content">
           <div className="navbar-logo" onClick={() => scrollToSection('hero')}>
             <div className="logo-icon">
-              <span>S</span>
+              <img src={ScrollBuzzLogo} alt="" />
             </div>
             <span className="logo-text">
-              The Scroll <span className="logo-accent">Buzz</span>
+              {/* The Scroll <span className="logo-accent">Buzz</span> */}
               <span className="nav-section-name">
                 / {activeSection.toUpperCase()}
               </span>

@@ -40,7 +40,6 @@ export default function Portfolio() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        console.log("entry of portfolio", entry)
         if (entry.isIntersecting) {
           setIsVisible(true);
         }
