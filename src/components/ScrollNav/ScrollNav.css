@@ -1,0 +1,86 @@
+/* ---------- Desktop Style (Vertical Sidebar) ---------- */
+.scroll-nav {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    z-index: 9999;
+    padding: 14px 10px;
+    background: #3f2a56a6;
+    border-radius: 40px;
+    backdrop-filter: blur(8px);
+    border: 1px solid #ffffff26;
+}
+
+.nav-icon {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 18px;
+    color: #cfcfe8;
+    background: #ffffff0d;
+    transition: all 0.3s ease;
+}
+
+.nav-icon.active {
+    color: #39ffe2;
+    background: #39ffe240;
+    transform: scale(1.25);
+    box-shadow: 0 0 4px #39ffe2;
+}
+
+.nav-icon .label {
+    display: none;
+}
+
+/* ---------- Mobile Style (Bottom Nav Bar) ---------- */
+@media (max-width: 768px) {
+    .scroll-nav {
+        left: 50%;
+        bottom: 15px;
+        top: unset;
+        transform: translateX(-50%);
+        width: 92%;
+        gap: 2px;
+        height: 60px;
+        padding: 0 0px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-radius: 18px;
+        background: #1e1e32bf;
+    }
+
+    .nav-icon {
+        flex-direction: column;
+        width: auto;
+        height: 100%;
+        flex: 1;
+        border-radius: 14px;
+        font-size: 16px;
+        background: transparent;
+    }
+
+    .nav-icon .label {
+        display: block;
+        font-size: 10px;
+        margin-top: 2px;
+        color: #ddd;
+    }
+
+    .nav-icon.active {
+        background: rgba(57, 255, 226, 0.18);
+        transform: none;
+        box-shadow: none;
+        color: #39ffe2;
+    }
+}

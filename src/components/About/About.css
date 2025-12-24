@@ -1,0 +1,239 @@
+.about {
+  position: relative;
+  padding: 6rem 0;
+  background: linear-gradient(to bottom, #000, #111827, #000);
+  overflow: hidden;
+  z-index: 999;
+}
+
+.about-background {
+  position: absolute;
+  inset: 0;
+  opacity: 0.2;
+}
+
+.about-glow {
+  position: absolute;
+  width: 24rem;
+  height: 24rem;
+  border-radius: 50%;
+  filter: blur(96px);
+}
+
+.about-glow-left {
+  top: 0;
+  left: 33.333%;
+  background-color: rgba(34, 211, 238, 0.2);
+}
+
+.about-glow-right {
+  bottom: 0;
+  right: 33.333%;
+  background-color: rgba(168, 85, 247, 0.2);
+}
+
+.about-container {
+  position: relative;
+  z-index: 10;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  transition: all 1s ease;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.about-header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #22d3ee, #a78bfa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (min-width: 768px) {
+  .about-title {
+    font-size: 3.75rem;
+  }
+}
+
+.about-divider {
+  height: 0.25rem;
+  width: 6rem;
+  margin: 0 auto;
+  background: linear-gradient(to right, #22d3ee, #a855f7);
+  border-radius: 9999px;
+  margin-bottom: 1.5rem;
+}
+
+.about-description {
+  font-size: 1.25rem;
+  color: #9ca3af;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .about-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.about-card {
+  position: relative;
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: all 0.5s ease;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.about-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.about-card:hover.about-card {
+  border-color: rgba(34, 211, 238, 0.5);
+}
+
+.about-card-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.about-card:hover .about-card-overlay {
+  opacity: 1;
+}
+
+.about-card-overlay-cyan {
+  background: linear-gradient(to bottom right, rgba(34, 211, 238, 0), rgba(34, 211, 238, 0.1));
+}
+
+.about-card-overlay-purple {
+  background: linear-gradient(to bottom right, rgba(168, 85, 247, 0), rgba(168, 85, 247, 0.1));
+}
+
+.about-card-overlay-pink {
+  background: linear-gradient(to bottom right, rgba(236, 72, 153, 0), rgba(236, 72, 153, 0.1));
+}
+
+.about-card-overlay-blue {
+  background: linear-gradient(to bottom right, rgba(59, 130, 246, 0), rgba(59, 130, 246, 0.1));
+}
+
+.about-card-content {
+  position: relative;
+  z-index: 10;
+}
+
+.about-icon {
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s ease;
+  color: white;
+}
+
+.about-card:hover .about-icon {
+  transform: rotate(12deg);
+}
+
+.about-icon-cyan {
+  background: linear-gradient(to bottom right, #22d3ee, #06b6d4);
+}
+
+.about-icon-purple {
+  background: linear-gradient(to bottom right, #a78bfa, #a855f7);
+}
+
+.about-icon-pink {
+  background: linear-gradient(to bottom right, #f9a8d4, #ec4899);
+}
+
+.about-icon-blue {
+  background: linear-gradient(to bottom right, #60a5fa, #3b82f6);
+}
+
+.about-card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.about-card-description {
+  color: #9ca3af;
+  line-height: 1.75;
+}
+
+.about-card-glow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  filter: blur(32px);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.about-card:hover .about-card-glow {
+  opacity: 1;
+}
+
+.about-card-glow-cyan {
+  background-color: rgba(34, 211, 238, 0.3);
+}
+
+.about-card-glow-purple {
+  background-color: rgba(168, 85, 247, 0.3);
+}
+
+.about-card-glow-pink {
+  background-color: rgba(236, 72, 153, 0.3);
+}
+
+.about-card-glow-blue {
+  background-color: rgba(59, 130, 246, 0.3);
+}
