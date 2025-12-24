@@ -3,26 +3,26 @@ import './Navbar.css';
 
 export default function Navbar({ sections }) {
   const [activeSection, setActiveSection] = useState('hero');
-  const [isScrolled, setIsScrolled] = useState(false);
+  // const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    let lastScrollY = window.scrollY;
+    // let lastScrollY = window.scrollY;
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       // console.log("last scroll", lastScrollY)
       // console.log("current scroll", currentScrollY)
 
-      // Scroll DOWN → hide navbar
-      if (currentScrollY > lastScrollY && currentScrollY > 60) {
-        setIsScrolled(true); // hidden
-      }
-      // Scroll UP → show navbar
-      else {
-        setIsScrolled(false); // visible
-      }
+      // // Scroll DOWN → hide navbar
+      // if (currentScrollY > lastScrollY && currentScrollY > 60) {
+      //   setIsScrolled(true); // hidden
+      // }
+      // // Scroll UP → show navbar
+      // else {
+      //   setIsScrolled(false); // visible
+      // }
 
-      lastScrollY = currentScrollY;
+      // lastScrollY = currentScrollY;
 
       const scrollPosition = currentScrollY + window.innerHeight / 2;
 
@@ -54,7 +54,7 @@ export default function Navbar({ sections }) {
   };
 
   return (
-    <nav className={`navbar ${isScrolled ? 'navbar-hidden' : 'navbar-visible'}`}>
+    <nav className={`navbar`}>
       <div className="navbar-container">
         <div className="navbar-content">
           <div className="navbar-logo" onClick={() => scrollToSection('hero')}>

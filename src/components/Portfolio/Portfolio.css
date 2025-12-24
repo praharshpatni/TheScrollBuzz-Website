@@ -239,6 +239,109 @@
   animation-play-state: paused;
 }
 
+/* =========================================== */
+/* MOBILE RESPONSIVE IMAGE SIZES ONLY - START */
+/* =========================================== */
+
+/* Mobile Phones (Small: 320px - 480px) */
+@media screen and (max-width: 480px) {
+
+  /* Reduce image container sizes */
+  .portfolio-grid .slider li,
+  .portfolio-grid .second-slider li {
+    height: 180px !important;
+    /* Reduced from 300px */
+    width: 180px !important;
+    /* Reduced from 300px */
+  }
+
+  /* Adjust animation positions for smaller images */
+  @keyframes leftToRight {
+    to {
+      left: -180px;
+      /* Adjusted for smaller width */
+    }
+  }
+
+  @keyframes RightToLeft {
+    to {
+      right: -180px;
+      /* Adjusted for smaller width */
+    }
+  }
+
+  /* Adjust grid container height */
+  .portfolio-grid {
+    height: 400px;
+    /* Reduced from 700px */
+  }
+
+  /* Adjust second slider position */
+  .portfolio-grid .second-slider {
+    top: 200px;
+    /* Adjusted for smaller images */
+  }
+
+  /* Adjust the min-width calculation for sliders */
+  .portfolio-grid .slider,
+  .portfolio-grid .second-slider {
+    min-width: calc(180px * var(--items)) !important;
+    /* Adjusted for smaller images */
+  }
+}
+
+/* Mobile Phones (Medium: 481px - 768px) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+
+  /* Medium-sized images for tablets */
+  .portfolio-grid .slider li,
+  .portfolio-grid .second-slider li {
+    height: 220px !important;
+    /* Reduced from 300px */
+    width: 220px !important;
+    /* Reduced from 300px */
+  }
+
+  /* Adjust animation positions */
+  @keyframes leftToRight {
+    to {
+      left: -220px;
+      /* Adjusted for medium width */
+    }
+  }
+
+  @keyframes RightToLeft {
+    to {
+      right: -220px;
+      /* Adjusted for medium width */
+    }
+  }
+
+  /* Adjust grid container height */
+  .portfolio-grid {
+    height: 500px;
+    /* Slightly reduced from 700px */
+  }
+
+  /* Adjust second slider position */
+  .portfolio-grid .second-slider {
+    top: 280px;
+    /* Adjusted for medium images */
+  }
+
+  /* Adjust the min-width calculation for sliders */
+  .portfolio-grid .slider,
+  .portfolio-grid .second-slider {
+    min-width: calc(220px * var(--items)) !important;
+    /* Adjusted for medium images */
+  }
+}
+
+/* ========================================= */
+/* MOBILE RESPONSIVE IMAGE SIZES ONLY - END */
+/* ========================================= */
+
+/* Your existing media queries below - keep them as they are */
 @media (min-width: 768px) {
   .portfolio-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -464,7 +567,6 @@
   position: relative;
   z-index: 10;
 }
-
 
 .portfolio-button-overlay {
   position: absolute;

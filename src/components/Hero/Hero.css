@@ -61,7 +61,7 @@
 .hero-title {
   font-size: 3rem;
   font-weight: bold;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   background: linear-gradient(to right, #22d3ee, #a78bfa, #f9a8d4);
   background-size: 200% 200%;
   -webkit-background-clip: text;

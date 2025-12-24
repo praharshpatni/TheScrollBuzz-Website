@@ -32,6 +32,12 @@
   padding: 0 1.5rem;
 }
 
+@media (max-width: 768px) {
+  .footer-container {
+    padding: 0 1.5rem 2.5rem;
+  }
+}
+
 .footer-grid {
   display: grid;
   grid-template-columns: 1fr;
