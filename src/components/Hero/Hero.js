@@ -114,7 +114,6 @@ export default function Hero() {
           className="hero-cta"
         >
           <span className="hero-cta-text">Get Started</span>
-          {/* <div className="hero-cta-overlay"></div> */}
         </button>
       </div>
 

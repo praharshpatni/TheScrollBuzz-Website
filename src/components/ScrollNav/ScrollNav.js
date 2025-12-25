@@ -11,7 +11,7 @@ import {
 
 export default function ScrollNav({ activeIndex, sections }) {
     const iconMap = {
-        hero: <FaHome />,
+        home: <FaHome />,
         about: <FaUserAlt />,
         services: <FaServicestack />,
         portfolio: <FaBriefcase />,

@@ -151,15 +151,12 @@ export default function Contact() {
             <form onSubmit={handleSubmit} action="https://api.web3forms.com/submit" method="POST" className="contact-form">
               <div className="contact-form-overlay"></div>
 
-              {/* REQUIRED: Your Access Key */}
-              <input type="hidden" name="access_key" value="d4d064b1-8cdd-458d-9cb1-45eb661a6b2d" />  {/* ← PASTE YOUR KEY HERE */}
+              <input type="hidden" name="access_key" value="d4d064b1-8cdd-458d-9cb1-45eb661a6b2d" />
 
-              {/* Optional but recommended */}
               <input type="hidden" name="subject" value="New Contact Form Submission - TheScrollBuzz" />
               <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />  {/* Anti-spam honeypot */}
 
               <div className="contact-form-content">
-                {/* All your existing fields – keep exactly as they are (name attributes match perfectly) */}
 
                 <div className="contact-form-group">
                   <label htmlFor="name" className="contact-form-label">Full Name</label>

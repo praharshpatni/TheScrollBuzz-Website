@@ -132,12 +132,12 @@
   animation: fadeInUp 1s ease-out;
 }
 
-.hero-service-tag:hover {
+.hero-content .hero-service-tag:hover {
   background-color: rgba(34, 211, 238, 0.1);
   border-color: #22d3ee;
 }
 
-.hero-cta {
+.hero-content .hero-cta {
   position: relative;
   padding: 1rem 2rem;
   background: linear-gradient(to right, #06b6d4, #a855f7);
@@ -152,7 +152,7 @@
   animation-delay: 300ms;
 }
 
-.hero-cta:hover {
+.hero-content .hero-cta:hover {
   box-shadow: 0 0 40px rgba(34, 211, 238, 0.5);
 }
 

@@ -22,7 +22,7 @@ function App() {
   const footerRef = useRef(null);
 
   const sections = React.useMemo(() => [
-    { id: "hero", ref: heroRef },
+    { id: "home", ref: heroRef },
     { id: "about", ref: aboutRef },
     { id: "services", ref: servicesRef },
     { id: "portfolio", ref: portfolioRef },

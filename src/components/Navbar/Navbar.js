@@ -65,10 +65,16 @@ export default function Navbar({ sections }) {
             <span className="logo-text">
               {/* The Scroll <span className="logo-accent">Buzz</span> */}
               <span className="nav-section-name">
-                / {activeSection.toUpperCase()}
+                /{activeSection.toUpperCase()}
               </span>
             </span>
           </div>
+          <button
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            className="hero-cta"
+          >
+            <span className="hero-cta-text">Contact</span>
+          </button>
         </div>
       </div>
     </nav>
