@@ -37,35 +37,21 @@
 
 .navbar-container .hero-cta {
   position: relative;
-  padding: 0.7rem 1.6rem;
-  background-color: transparent;
+  padding: 0.7rem 1.5rem;
+  background: linear-gradient(to right, #06b6d4, #a855f7);
   color: white;
-  border: 1px solid white;
   font-weight: 600;
   border-radius: 9999px;
   overflow: hidden;
+  border: none;
   cursor: pointer;
   transition: all 0.3s ease;
   animation: fadeInUp 1s ease-out;
   animation-delay: 300ms;
 }
 
-.navbar-container .hero-cta::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  border-radius: 9999px;
-  transform: translate(-50%, -50%);
-  background: linear-gradient(to right, #06b6d4, #a855f7);
-  height: 0;
-  width: 0;
-  transition: all 500ms ease-in-out;
-}
-
 .navbar-container .hero-cta:hover {
-  border: 1px solid transparent;
-  box-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+  box-shadow: 0 0 25px rgba(34, 211, 238, 0.5);
 }
 
 .navbar-container .hero-cta:hover::after {

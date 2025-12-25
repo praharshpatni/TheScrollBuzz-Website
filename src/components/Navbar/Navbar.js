@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './Navbar.css';
 import ScrollBuzzLogo from "./../../Assets/TSB_Final_Logo_PNG.png"
 
 export default function Navbar({ sections }) {
-  const [activeSection, setActiveSection] = useState('hero');
+  // const [activeSection, setActiveSection] = useState('hero');
   // const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     // let lastScrollY = window.scrollY;
 
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+      // const currentScrollY = window.scrollY;
       // console.log("last scroll", lastScrollY)
       // console.log("current scroll", currentScrollY)
 
@@ -25,20 +25,20 @@ export default function Navbar({ sections }) {
 
       // lastScrollY = currentScrollY;
 
-      const scrollPosition = currentScrollY + window.innerHeight / 2;
+      // const scrollPosition = currentScrollY + window.innerHeight / 2;
 
-      sections.forEach((sec) => {
-        const element = sec.ref.current;
-        if (!element) return;
+      // sections.forEach((sec) => {
+      //   const element = sec.ref.current;
+      //   if (!element) return;
 
-        const { offsetTop, offsetHeight } = element;
-        if (
-          scrollPosition >= offsetTop &&
-          scrollPosition < offsetTop + offsetHeight
-        ) {
-          setActiveSection(sec.id);
-        }
-      });
+      //   const { offsetTop, offsetHeight } = element;
+      //   // if (
+      //   //   scrollPosition >= offsetTop &&
+      //   //   scrollPosition < offsetTop + offsetHeight
+      //   // ) {
+      //   //   setActiveSection(sec.id);
+      //   // }
+      // });
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -49,6 +49,7 @@ export default function Navbar({ sections }) {
 
   const scrollToSection = (id) => {
     const element = sections.find((sec) => sec.id === id)?.ref.current;
+    console.log("element", element)
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -58,22 +59,18 @@ export default function Navbar({ sections }) {
     <nav className={`navbar`}>
       <div className="navbar-container">
         <div className="navbar-content">
-          <div className="navbar-logo" onClick={() => scrollToSection('hero')}>
+          <div className="navbar-logo" onClick={() => scrollToSection('home')}>
             <div className="logo-icon">
               <img src={ScrollBuzzLogo} alt="" />
             </div>
-            <span className="logo-text">
-              {/* The Scroll <span className="logo-accent">Buzz</span> */}
-              <span className="nav-section-name">
-                /{activeSection.toUpperCase()}
-              </span>
-            </span>
+            {/* <span className="logo-text">
+            </span> */}
           </div>
           <button
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             className="hero-cta"
           >
-            <span className="hero-cta-text">Contact</span>
+            <span className="hero-cta-text">Get Started</span>
           </button>
         </div>
       </div>

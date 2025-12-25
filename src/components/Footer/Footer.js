@@ -15,7 +15,9 @@ export default function Footer() {
       <div className="footer-container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <div className="footer-logo">
+            <div className="footer-logo" onClick={() =>
+              document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' })
+            }>
               <img src={TheScrollBuzzLogo} alt="" />
               {/* <div className="footer-logo-icon">
                 <span>S</span>
