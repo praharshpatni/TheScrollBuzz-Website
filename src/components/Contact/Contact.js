@@ -1,11 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Mail, MapPin, Send } from 'lucide-react';
+import { Mail, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import './Contact.css';
 import {
-  // FaTwitter,
   FaInstagram,
-  // FaLinkedinIn,
-  // FaBehance,
   FaFacebookF
 } from "react-icons/fa";
 
@@ -20,15 +17,12 @@ export default function Contact() {
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState('');
+  const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
+
   const socialLinks = [
     { name: "Instagram", icon: <FaInstagram />, url: "https://www.instagram.com/thescrollbuzz.in/" },
-    // { name: "Twitter", icon: <FaTwitter />, url: "https://twitter.com" },
-    // { name: "LinkedIn", icon: <FaLinkedinIn />, url: "https://linkedin.com" },
-    // { name: "Behance", icon: <FaBehance />, url: "https://behance.net" },
     { name: "Facebook", icon: <FaFacebookF />, url: "https://www.facebook.com/profile.php?id=61583928221752" },
   ];
-
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -50,16 +44,87 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus({ type: '', message: '' });
 
-    setTimeout(() => {
-      setSubmitMessage('Thank you! We\'ll get back to you soon.');
+    // Create FormData object
+    const formDataObj = new FormData();
+
+    // Add all form fields
+    formDataObj.append('name', formData.name);
+    formDataObj.append('email', formData.email);
+    formDataObj.append('phone', formData.phone || 'Not provided');
+    formDataObj.append('service', formData.service);
+    formDataObj.append('message', formData.message);
+
+    // Web3Forms required fields
+    formDataObj.append('access_key', 'd4d064b1-8cdd-458d-9cb1-45eb661a6b2d');
+    formDataObj.append('subject', 'New Contact Form Submission - TheScrollBuzz');
+    formDataObj.append('from_name', 'TheScrollBuzz Website Contact Form');
+
+    // Honeypot - should be empty
+    formDataObj.append('botcheck', '');
+
+    try {
+      console.log('Sending form data to Web3Forms...');
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formDataObj,
+        headers: {
+          'Accept': 'application/json',
+        },
+      });
+
+      const result = await response.json();
+      console.log('Web3Forms Response:', result);
+
+      if (response.ok && result.success) {
+        setSubmitStatus({
+          type: 'success',
+          message: '✅ Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours!'
+        });
+
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: '',
+          message: '',
+        });
+      } else {
+        // Show detailed error from Web3Forms
+        const errorMsg = result.message || 'Failed to send message. Please try again.';
+        console.error('Web3Forms Error:', result);
+        throw new Error(errorMsg);
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+
+      // More specific error messages
+      let errorMessage = 'Oops! Something went wrong. ';
+
+      if (error.message.includes('Failed to fetch')) {
+        errorMessage += 'Please check your internet connection and try again.';
+      } else if (error.message.includes('rate limit')) {
+        errorMessage += 'Too many submissions. Please try again in a few minutes.';
+      } else {
+        errorMessage += 'Please try again or email us directly at info@thescrollbuzz.in';
+      }
+
+      setSubmitStatus({
+        type: 'error',
+        message: errorMessage
+      });
+    } finally {
       setIsSubmitting(false);
-      setFormData({ name: '', email: '', phone: '', service: '', message: '' });
 
+      // Clear success messages after 8 seconds, error messages after 10 seconds
+      const clearTime = submitStatus.type === 'success' ? 8000 : 10000;
       setTimeout(() => {
-        setSubmitMessage('');
-      }, 5000);
-    }, 1500);
+        setSubmitStatus({ type: '', message: '' });
+      }, clearTime);
+    }
   };
 
   const handleChange = (e) => {
@@ -70,8 +135,7 @@ export default function Contact() {
   };
 
   const contactInfo = [
-    { Icon: Mail, label: 'Email', value: 'info@thescrollbuzz.in' },
-    // { Icon: Phone, label: 'Phone', value: '+1 (555) 123-4567' },
+    { Icon: Mail, label: 'Email', value: 'info@thescrollbuzz.in', href: 'mailto:info@thescrollbuzz.in' },
     { Icon: MapPin, label: 'Location', value: 'Vadodara, Gujarat, INDIA.' },
   ];
 
@@ -110,6 +174,14 @@ export default function Contact() {
             <div className="contact-info-items">
               {contactInfo.map((info, index) => {
                 const Icon = info.Icon;
+                const content = info.href ? (
+                  <a href={info.href} className="contact-info-link">
+                    <p className="contact-info-value">{info.value}</p>
+                  </a>
+                ) : (
+                  <p className="contact-info-value">{info.value}</p>
+                );
+
                 return (
                   <div
                     key={info.label}
@@ -121,7 +193,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="contact-info-label">{info.label}</p>
-                      <p className="contact-info-value">{info.value}</p>
+                      {content}
                     </div>
                   </div>
                 );
@@ -148,18 +220,12 @@ export default function Contact() {
           </div>
 
           <div className={`contact-form-wrapper ${isVisible ? 'visible' : ''}`}>
-            <form onSubmit={handleSubmit} action="https://api.web3forms.com/submit" method="POST" className="contact-form">
+            <form onSubmit={handleSubmit} className="contact-form">
               <div className="contact-form-overlay"></div>
 
-              <input type="hidden" name="access_key" value="d4d064b1-8cdd-458d-9cb1-45eb661a6b2d" />
-
-              <input type="hidden" name="subject" value="New Contact Form Submission - TheScrollBuzz" />
-              <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />  {/* Anti-spam honeypot */}
-
               <div className="contact-form-content">
-
                 <div className="contact-form-group">
-                  <label htmlFor="name" className="contact-form-label">Full Name</label>
+                  <label htmlFor="name" className="contact-form-label">Full Name *</label>
                   <input
                     type="text"
                     id="name"
@@ -173,7 +239,7 @@ export default function Contact() {
                 </div>
 
                 <div className="contact-form-group">
-                  <label htmlFor="email" className="contact-form-label">Email Address</label>
+                  <label htmlFor="email" className="contact-form-label">Email Address *</label>
                   <input
                     type="email"
                     id="email"
@@ -200,7 +266,7 @@ export default function Contact() {
                 </div>
 
                 <div className="contact-form-group">
-                  <label htmlFor="service" className="contact-form-label">Service Interested In</label>
+                  <label htmlFor="service" className="contact-form-label">Service Interested In *</label>
                   <select
                     id="service"
                     name="service"
@@ -210,17 +276,19 @@ export default function Contact() {
                     className="contact-form-select"
                   >
                     <option value="">Select a service</option>
-                    <option value="digital-marketing">Digital Marketing</option>
-                    <option value="graphic-design">Graphic Design</option>
-                    <option value="web-development">Website Development</option>
-                    <option value="social-media">Social Media Management</option>
-                    <option value="ui-ux">UI/UX Design</option>
-                    <option value="video-editing">Video Editing</option>
+                    <option value="Digital Marketing">Digital Marketing</option>
+                    <option value="Graphic Design">Graphic Design</option>
+                    <option value="Website Development">Website Development</option>
+                    <option value="Social Media Management">Social Media Management</option>
+                    <option value="UI/UX Design">UI/UX Design</option>
+                    <option value="Video Editing">Video Editing</option>
+                    <option value="Brand Strategy">Brand Strategy</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
 
                 <div className="contact-form-group">
-                  <label htmlFor="message" className="contact-form-label">Message</label>
+                  <label htmlFor="message" className="contact-form-label">Message *</label>
                   <textarea
                     id="message"
                     name="message"
@@ -233,8 +301,11 @@ export default function Contact() {
                   />
                 </div>
 
-                {submitMessage && (
-                  <div className="contact-form-message">{submitMessage}</div>
+                {submitStatus.message && (
+                  <div className={`contact-form-status ${submitStatus.type}`}>
+                    {submitStatus.type === 'success' ? <CheckCircle size={20} /> : <AlertCircle size={20} />}
+                    <span>{submitStatus.message}</span>
+                  </div>
                 )}
 
                 <button
@@ -248,6 +319,10 @@ export default function Contact() {
                   </span>
                   <div className="contact-form-button-overlay"></div>
                 </button>
+
+                <div className="contact-form-note">
+                  <small>By submitting this form, you agree to our privacy policy and consent to being contacted by TheScrollBuzz.</small>
+                </div>
               </div>
             </form>
           </div>
