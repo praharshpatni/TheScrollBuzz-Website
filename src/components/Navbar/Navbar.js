@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './Navbar.css';
-import ScrollBuzzLogo from "./../../Assets/TSB_Final_Logo_PNG.png"
+import ScrollBuzzLogo from "./../../Assets/TSB_Logo_Black_BG.png"
 
 export default function Navbar({ sections }) {
   // const [activeSection, setActiveSection] = useState('hero');

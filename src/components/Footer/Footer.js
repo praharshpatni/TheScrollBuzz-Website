@@ -1,7 +1,7 @@
 import React from 'react';
 import { Heart } from 'lucide-react';
 import './Footer.css';
-import TheScrollBuzzLogo from "./../../Assets/TSB_Final_Logo_PNG.png"
+import TheScrollBuzzLogo from "./../../Assets/TSB_Logo_Black_BG.png"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();

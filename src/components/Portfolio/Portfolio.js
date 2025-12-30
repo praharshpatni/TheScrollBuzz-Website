@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+// import React, { useRef, useState, useEffect } from 'react';
 import './Portfolio.css';
 // import gsap from 'gsap';
 // import { useGSAP } from '@gsap/react';
@@ -20,6 +20,9 @@ import image11 from "./../../Assets/image11.png"
 import image12 from "./../../Assets/image12.jpg"
 import image13 from "./../../Assets/image13.jpg"
 import image14 from "./../../Assets/image14.jpg"
+import image23 from "./../../Assets/image23.jpg"
+import image24 from "./../../Assets/image24.jpg"
+import image25 from "./../../Assets/image25.jpg"
 // import image15 from "./../../Assets/image15.png"
 // import image16 from "./../../Assets/image16.jpg"
 // import image17 from "./../../Assets/image17.png"
@@ -34,32 +37,32 @@ export default function Portfolio() {
   // const [hoveredIndex, setHoveredIndex] = useState(null);
 
   // gsap.registerPlugin(ScrollTrigger);
-  const sectionRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
+  // const sectionRef = useRef(null);
+  // const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     ([entry]) => {
+  //       if (entry.isIntersecting) {
+  //         setIsVisible(true);
+  //       }
+  //     },
+  //     { threshold: 0.1 }
+  //   );
 
-    console.log("section ref correct", sectionRef.current)
+  //   console.log("section ref correct", sectionRef.current)
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+  //   if (sectionRef.current) {
+  //     observer.observe(sectionRef.current);
+  //   }
 
-    return () => observer.disconnect();
-  }, []);
+  //   return () => observer.disconnect();
+  // }, []);
 
   return (
     <section
       id="portfolio"
-      ref={sectionRef}
+      // ref={sectionRef}
       className="portfolio"
     >
       <div className="portfolio-background">
@@ -68,7 +71,7 @@ export default function Portfolio() {
       </div>
 
 
-      <div className={`portfolio-header ${isVisible ? 'visible' : ''}`}>
+      <div className={`portfolio-header `}>
         <h2 className="portfolio-title">
           Portfolio
         </h2>
@@ -78,7 +81,7 @@ export default function Portfolio() {
         </p>
       </div>
       <div className="portfolio-grid">
-        <ul className="slider" style={{ '--items': 7, '--time': '20s', }}>
+        <ul className="slider" style={{ '--items': 9, '--time': '20s', }}>
           <li style={{ '--position': 1 }}>
             <img src={image1} alt="" />
           </li>
@@ -100,11 +103,17 @@ export default function Portfolio() {
           <li style={{ '--position': 7 }}>
             <img src={image7} alt="" />
           </li>
+          <li style={{ '--position': 8 }}>
+            <img src={image23} alt="" />
+          </li>
+          <li style={{ '--position': 9 }}>
+            <img src={image24} alt="" />
+          </li>
 
         </ul>
 
         {/* second slider */}
-        <ul className="second-slider" style={{ '--items': 7, '--time': '20s', }}>
+        <ul className="second-slider" style={{ '--items': 8, '--time': '20s', }}>
           <li style={{ '--position': 1 }}>
             <img src={image8} alt="" />
           </li>
@@ -125,6 +134,9 @@ export default function Portfolio() {
           </li>
           <li style={{ '--position': 7 }}>
             <img src={image14} alt="" />
+          </li>
+          <li style={{ '--position': 8 }}>
+            <img src={image25} alt="" />
           </li>
 
         </ul>

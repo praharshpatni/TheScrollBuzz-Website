@@ -91,7 +91,6 @@
 .absolute_animation_container_left {
   left: 0;
   background: linear-gradient(to bottom right, #2c1810, #3f2a56, #2c1810);
-  /* background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364); */
   clip-path: polygon(0 0, 61% 0, 41% 100%, 0% 100%);
   background-position: left;
   animation: goleft 1.5s 4.5s ease-in-out forwards;
