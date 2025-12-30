@@ -1,4 +1,4 @@
-// import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import './Portfolio.css';
 // import gsap from 'gsap';
 // import { useGSAP } from '@gsap/react';
@@ -37,32 +37,30 @@ export default function Portfolio() {
   // const [hoveredIndex, setHoveredIndex] = useState(null);
 
   // gsap.registerPlugin(ScrollTrigger);
-  // const sectionRef = useRef(null);
-  // const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver(
-  //     ([entry]) => {
-  //       if (entry.isIntersecting) {
-  //         setIsVisible(true);
-  //       }
-  //     },
-  //     { threshold: 0.1 }
-  //   );
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
 
-  //   console.log("section ref correct", sectionRef.current)
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
 
-  //   if (sectionRef.current) {
-  //     observer.observe(sectionRef.current);
-  //   }
-
-  //   return () => observer.disconnect();
-  // }, []);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section
       id="portfolio"
-      // ref={sectionRef}
+      ref={sectionRef}
       className="portfolio"
     >
       <div className="portfolio-background">
@@ -81,7 +79,7 @@ export default function Portfolio() {
         </p>
       </div>
       <div className="portfolio-grid">
-        <ul className="slider" style={{ '--items': 9, '--time': '20s', }}>
+        <ul className={`slider ${isVisible ? 'animate' : ''}`} style={{ '--items': 9, '--time': '20s' }}>
           <li style={{ '--position': 1 }}>
             <img src={image1} alt="" />
           </li>
@@ -113,7 +111,7 @@ export default function Portfolio() {
         </ul>
 
         {/* second slider */}
-        <ul className="second-slider" style={{ '--items': 8, '--time': '20s', }}>
+        <ul className={`second-slider ${isVisible ? 'animate' : ''}`} style={{ '--items': 8, '--time': '20s' }}>
           <li style={{ '--position': 1 }}>
             <img src={image8} alt="" />
           </li>
@@ -141,7 +139,7 @@ export default function Portfolio() {
 
         </ul>
       </div>
-    </section>
+    </section >
 
   );
 }

@@ -175,11 +175,16 @@
   width: 300px;
   position: absolute;
   left: 100%;
+  list-style: none;
+  will-change: transform;
+}
+
+.portfolio-grid .slider.animate li {
   animation: leftToRight var(--time) linear infinite;
   animation-delay: calc(((var(--position) - 1) * var(--time) / var(--items)) - 20s);
-  list-style: none;
   animation-play-state: running;
 }
+
 
 @keyframes leftToRight {
   to {
@@ -208,11 +213,16 @@
   width: 300px;
   position: absolute;
   right: 100%;
+  list-style: none;
+  border-radius: 10px;
+  will-change: transform;
+  /* Optimize for animations */
+}
+
+.portfolio-grid .second-slider.animate li {
   animation: RightToLeft var(--time) linear infinite;
   animation-delay: calc(((var(--position) - 1) * var(--time) / var(--items)) - 20s);
-  list-style: none;
   animation-play-state: running;
-  border-radius: 10px;
 }
 
 .portfolio-grid ul li img {
@@ -227,7 +237,11 @@
   /* filter: grayscale(100%); */
 }
 
-.portfolio-grid:hover ul li {
+.portfolio-grid .slider:hover li {
+  animation-play-state: paused;
+}
+
+.portfolio-grid .second-slider:hover li {
   animation-play-state: paused;
 }
 
@@ -242,43 +256,37 @@
   .portfolio-grid .slider li,
   .portfolio-grid .second-slider li {
     height: 180px !important;
-    /* Reduced from 300px */
     width: 180px !important;
-    /* Reduced from 300px */
+    will-change: transform;
   }
 
   /* Adjust animation positions for smaller images */
   @keyframes leftToRight {
     to {
       left: -180px;
-      /* Adjusted for smaller width */
     }
   }
 
   @keyframes RightToLeft {
     to {
       right: -180px;
-      /* Adjusted for smaller width */
     }
   }
 
   /* Adjust grid container height */
   .portfolio-grid {
     height: 400px;
-    /* Reduced from 700px */
   }
 
   /* Adjust second slider position */
   .portfolio-grid .second-slider {
     top: 200px;
-    /* Adjusted for smaller images */
   }
 
   /* Adjust the min-width calculation for sliders */
   .portfolio-grid .slider,
   .portfolio-grid .second-slider {
     min-width: calc(180px * var(--items)) !important;
-    /* Adjusted for smaller images */
   }
 }
 
@@ -289,9 +297,8 @@
   .portfolio-grid .slider li,
   .portfolio-grid .second-slider li {
     height: 220px !important;
-    /* Reduced from 300px */
     width: 220px !important;
-    /* Reduced from 300px */
+    will-change: transform;
   }
 
   /* Adjust animation positions */
