@@ -23,7 +23,9 @@ import image14 from "./../../Assets/image14.jpg"
 import image23 from "./../../Assets/image23.jpg"
 import image24 from "./../../Assets/image24.jpg"
 import image25 from "./../../Assets/image25.jpg"
-// import image15 from "./../../Assets/image15.png"
+import image26 from "./../../Assets/image26.png"
+import image27 from "./../../Assets/image27.png"
+import image28 from "./../../Assets/image28.png"
 // import image16 from "./../../Assets/image16.jpg"
 // import image17 from "./../../Assets/image17.png"
 // import image18 from "./../../Assets/image18.jpg"
@@ -79,7 +81,7 @@ export default function Portfolio() {
         </p>
       </div>
       <div className="portfolio-grid">
-        <ul className={`slider ${isVisible ? 'animate' : ''}`} style={{ '--items': 9, '--time': '20s' }}>
+        <ul className={`slider ${isVisible ? 'animate' : ''}`} style={{ '--items': 10, '--time': '20s' }}>
           <li style={{ '--position': 1 }}>
             <img src={image1} alt="" />
           </li>
@@ -107,11 +109,14 @@ export default function Portfolio() {
           <li style={{ '--position': 9 }}>
             <img src={image24} alt="" />
           </li>
+          <li style={{ '--position': 10 }}>
+            <img src={image27} alt="" />
+          </li>
 
         </ul>
 
         {/* second slider */}
-        <ul className={`second-slider ${isVisible ? 'animate' : ''}`} style={{ '--items': 8, '--time': '20s' }}>
+        <ul className={`second-slider ${isVisible ? 'animate' : ''}`} style={{ '--items': 10, '--time': '20s' }}>
           <li style={{ '--position': 1 }}>
             <img src={image8} alt="" />
           </li>
@@ -135,6 +140,12 @@ export default function Portfolio() {
           </li>
           <li style={{ '--position': 8 }}>
             <img src={image25} alt="" />
+          </li>
+          <li style={{ '--position': 9 }}>
+            <img src={image26} alt="" />
+          </li>
+          <li style={{ '--position': 10 }}>
+            <img src={image28} alt="" />
           </li>
 
         </ul>
