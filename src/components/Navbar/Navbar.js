@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './Navbar.css';
-import ScrollBuzzLogo from "./../../Assets/TSB_Logo_Black_BG.png"
+import TheScrollBuzz from "./../../Assets/TheScrollBuzz.svg"
 
 export default function Navbar({ sections }) {
   // const [activeSection, setActiveSection] = useState('hero');
@@ -45,8 +45,6 @@ export default function Navbar({ sections }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [sections]);
 
-
-
   const scrollToSection = (id) => {
     const element = sections.find((sec) => sec.id === id)?.ref.current;
     console.log("element", element)
@@ -61,7 +59,7 @@ export default function Navbar({ sections }) {
         <div className="navbar-content">
           <div className="navbar-logo" onClick={() => scrollToSection('home')}>
             <div className="logo-icon">
-              <img src={ScrollBuzzLogo} alt="" />
+              <img src={TheScrollBuzz} alt="" />
             </div>
             {/* <span className="logo-text">
             </span> */}

@@ -94,7 +94,12 @@ export default function Services() {
         <svg className="services-grid" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="cyan" strokeWidth="0.5" />
+              <path
+                d="M 40 0 L 0 0 0 40"
+                fill="none"
+                stroke="rgba(255, 122, 0, 0.25)"
+                strokeWidth="0.5"
+              />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#grid)" />
@@ -120,7 +125,7 @@ export default function Services() {
             return (
               <div
                 key={service.title}
-                className={`service-card ${isVisible ? 'visible' : ''} ${isExpanded ? 'expanded' : ''}`}
+                className={`service-card ${isVisible ? 'visible' : ''} ${isExpanded ? 'expanded' : ''} `}
                 style={{ transitionDelay: `${index * 100}ms` }}
                 onClick={() => setExpandedService(isExpanded ? null : index)}
               >

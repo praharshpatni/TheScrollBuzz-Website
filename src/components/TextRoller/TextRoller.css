@@ -3,22 +3,19 @@
 .roller-title {
     display: inline-flex;
     align-items: center;
-
     gap: clamp(2px, 0.45vw, 6px);
-
     font-weight: 900;
     text-transform: uppercase;
-    font-family: "Roboto Slab", serif;
+
     line-height: 1;
 }
 
 
 .roller-letter {
     display: inline-block;
-
     font-size: clamp(1.1rem, 5vw, 4rem);
     width: clamp(1em, 3.4vw, 2.8em);
-
     color: #fff;
     text-align: center;
+    font-family: "Roboto Slab", serif;
 }

@@ -36,7 +36,7 @@ export default function TextRoller({ finalText = "", duration = 100 }) {
             {finalText.split("").map((char, i) => (
                 <span
                     key={i}
-                    ref={(el) => (refs.current[i] = el)}
+                    ref={(el) => { (refs.current[i] = el) }}
                     className="roller-letter"
                 >
                     {char}

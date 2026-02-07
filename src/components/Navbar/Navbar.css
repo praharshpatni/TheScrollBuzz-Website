@@ -4,9 +4,14 @@
   left: 0;
   right: 0;
   z-index: 9998;
-  background: linear-gradient(to right, #22d3ee23, #a78bfa34, #f9a8d422);
+
+  background: linear-gradient(to right,
+      rgba(49, 91, 93, 0.85),
+      rgba(11, 31, 35, 0.85));
+
+  backdrop-filter: blur(18px);
   transform: translateY(0);
-  transition: transform 0.45s ease-in-out, background-color 0.3s ease;
+  transition: transform 0.45s ease-in-out, background 0.3s ease;
   will-change: transform;
 }
 
@@ -37,22 +42,30 @@
 
 .navbar-container .hero-cta {
   position: relative;
-  padding: 0.7rem 1.5rem;
-  background: linear-gradient(to right, #06b6d4, #a855f7);
-  color: white;
-  font-weight: 600;
+  padding: 0.7rem 1.6rem;
+
+  background: linear-gradient(135deg,
+      #FF7A00,
+      #FFC83D);
+
+  color: #fefefe;
+  font-weight: 700;
   border-radius: 9999px;
-  overflow: hidden;
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
-  animation: fadeInUp 1s ease-out;
-  animation-delay: 300ms;
+
+  box-shadow: 0 6px 18px rgba(255, 122, 0, 0.35);
+
+  transition: all 0.35s ease;
 }
 
+
 .navbar-container .hero-cta:hover {
-  box-shadow: 0 0 25px rgba(34, 211, 238, 0.5);
+  transform: translateY(-1px);
+  box-shadow:
+    0 10px 30px rgba(255, 122, 0, 0.55);
 }
+
 
 .navbar-container .hero-cta:hover::after {
   height: 100%;
@@ -72,7 +85,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  filter: drop-shadow(0 0 6px rgba(255, 122, 0, 0.35));
 }
+
 
 .logo-icon img {
   height: 100%;
@@ -115,33 +130,39 @@
 }
 
 .navbar-link {
-  color: #d1d5db;
+  color: #C7D6D8;
+  font-weight: 500;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
   font-size: 1rem;
-  transition: color 0.3s ease;
   position: relative;
+  transition: color 0.3s ease;
 }
 
 .navbar-link:hover {
-  color: #22d3ee;
+  color: #FF7A00;
 }
+
 
 .navbar-link-underline {
   position: absolute;
-  bottom: 0;
+  bottom: -4px;
   left: 0;
   width: 0;
-  height: 0.125rem;
-  background: linear-gradient(to right, #22d3ee, #a855f7);
+  height: 2px;
+
+  background: linear-gradient(to right,
+      #FF7A00,
+      #FFC83D);
+
   transition: width 0.3s ease;
 }
 
 .navbar-link:hover .navbar-link-underline {
   width: 100%;
 }
+
 
 .mobile-menu-button {
   display: block;
@@ -156,23 +177,32 @@
   .mobile-menu-button {
     display: none;
   }
-}
 
-.mobile-menu {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease;
-  background-color: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(20px);
-}
-
-@media (min-width: 768px) {
   .mobile-menu {
     display: none;
   }
 }
 
-@media (max-width: 500px) {
+.mobile-menu {
+  background: linear-gradient(to bottom,
+      #2f220e,
+      #efefef);
+  backdrop-filter: blur(20px);
+}
+
+@media (max-width: 450px) {
+  .navbar-container {
+    padding: 1.2rem 10px;
+  }
+
+  .logo-icon {
+    margin-left: 10px;
+  }
+
+  .navbar-container .hero-cta {
+    padding: 0.8rem 1.1rem;
+  }
+
   .logo-icon {
     padding: 4px;
 
@@ -190,7 +220,7 @@
   gap: 1rem;
 }
 
-.mobile-menu-link {
+/* .mobile-menu-link {
   display: block;
   width: 100%;
   text-align: left;
@@ -205,4 +235,11 @@
 
 .mobile-menu-link:hover {
   color: #22d3ee;
+} */
+.mobile-menu-link {
+  color: #C7D6D8;
+}
+
+.mobile-menu-link:hover {
+  color: #FF7A00;
 }

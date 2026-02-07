@@ -1,10 +1,36 @@
 .services {
   position: relative;
   padding: 6rem 0;
-  background: linear-gradient(to bottom, #000, #111827, #000);
+  /* background: linear-gradient(to bottom, #000, #111827, #000); */
+  background: #FFFFFF;
   overflow: hidden;
-  z-index: 999;
+  z-index: 10;
 }
+
+.services::before,
+.services::after {
+  content: '';
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.15;
+  z-index: 0;
+}
+
+.services::before {
+  background: var(--brand-orange);
+  top: -120px;
+  left: -120px;
+}
+
+.services::after {
+  background: var(--brand-orange-soft);
+  bottom: -120px;
+  right: -120px;
+}
+
 
 .services-background {
   position: absolute;
@@ -39,7 +65,7 @@
   transform: translateY(0);
 }
 
-.services-title {
+/* .services-title {
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 1rem;
@@ -47,7 +73,19 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+} */
+.services-title {
+  font-size: 3.25rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg,
+      var(--text-dark),
+      var(--brand-orange));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
+
 
 @media (min-width: 768px) {
   .services-title {
@@ -55,18 +93,28 @@
   }
 }
 
-.services-divider {
+/* .services-divider {
   height: 0.25rem;
   width: 6rem;
   margin: 0 auto;
   background: linear-gradient(to right, #22d3ee, #a855f7);
   border-radius: 9999px;
   margin-bottom: 1.5rem;
+} */
+.services-divider {
+  height: 0.25rem;
+  width: 5rem;
+  margin: 0 auto 1.5rem;
+  background: linear-gradient(to right,
+      var(--brand-orange),
+      var(--brand-orange-soft));
+  border-radius: 9999px;
 }
 
+
 .services-description {
-  font-size: 1.25rem;
-  color: #9ca3af;
+  font-size: 1.15rem;
+  color: var(--text-muted);
   max-width: 48rem;
   margin: 0 auto;
 }
@@ -89,7 +137,7 @@
   }
 }
 
-.service-card {
+/* .service-card {
   position: relative;
   background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
   backdrop-filter: blur(10px);
@@ -100,7 +148,19 @@
   transition: all 0.5s ease;
   opacity: 0;
   transform: translateY(10px);
+} */
+.service-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border-light);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateY(12px);
 }
+
 
 .service-card.visible {
   opacity: 1;
@@ -108,15 +168,20 @@
 }
 
 .service-card:hover {
-  border-color: rgba(34, 211, 238, 0.5);
+  transform: translateY(-6px);
+  border-color: rgba(255, 122, 0, 0.4);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
 }
+
 
 .service-card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom right, rgba(34, 211, 238, 0), rgba(168, 85, 247, 0.1));
+  background: linear-gradient(135deg,
+      rgba(255, 122, 0, 0),
+      rgba(255, 122, 0, 0.08));
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.4s ease;
 }
 
 .service-card:hover .service-card-overlay {
@@ -133,33 +198,35 @@
   width: 4rem;
   height: 4rem;
   margin-bottom: 1.5rem;
-  background: linear-gradient(to bottom right, #22d3ee, #a855f7);
-  border-radius: 0.75rem;
+  background: linear-gradient(to bottom right,
+      var(--brand-orange),
+      var(--brand-orange-soft));
+  border-radius: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  transition: transform 0.5s ease;
+  transition: transform 0.4s ease;
 }
 
 .service-card:hover .service-icon {
-  transform: rotate(12deg) scale(1.1);
+  transform: rotate(-8deg) scale(1.1);
 }
 
 .service-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: white;
   margin-bottom: 0.75rem;
   transition: color 0.3s ease;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
 }
 
 .service-card:hover .service-title {
-  color: #22d3ee;
+  color: var(--brand-orange);
 }
 
 .service-short-desc {
-  color: #9ca3af;
+  color: var(--text-muted);
   margin-bottom: 1rem;
 }
 
@@ -176,7 +243,7 @@
 }
 
 .service-full-desc {
-  color: #d1d5db;
+  color: #374151;
   margin-bottom: 1rem;
   line-height: 1.75;
 }
@@ -196,29 +263,29 @@
 .service-feature-dot {
   width: 0.375rem;
   height: 0.375rem;
-  background-color: #22d3ee;
+  background-color: var(--brand-orange);
   border-radius: 50%;
 }
 
 .service-feature-text {
-  color: #9ca3af;
+  color: var(--text-muted);
   font-size: 0.875rem;
 }
 
 .service-learn-more {
+  padding: 0;
   margin-top: 1rem;
-  color: #22d3ee;
+  color: var(--brand-orange);
   font-size: 0.875rem;
   font-weight: 600;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
-  transition: color 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .service-learn-more:hover {
-  color: #06b6d4;
+  transform: translateX(4px);
 }
 
 .service-card-glow {

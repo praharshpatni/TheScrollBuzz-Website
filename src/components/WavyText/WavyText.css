@@ -1,0 +1,30 @@
+.loader-container {
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wave {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: flex;
+    color: #595959;
+}
+
+.wave span {
+    display: inline-block;
+    animation: wave-sequential var(--animation-duration, 3s) infinite ease-in-out,
+        colorShift 3s infinite linear;
+}
+
+@keyframes colorShift {
+
+    45%,
+    50%,
+    55% {
+        color: white;
+    }
+}

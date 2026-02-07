@@ -47,7 +47,9 @@ export default function Hero() {
       particles.forEach((particle) => {
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(34, 211, 238, ${particle.opacity})`;
+
+        ctx.fillStyle = `rgba(255, 122, 0, ${particle.opacity})`;
+
         ctx.fill();
 
         particle.x += particle.speedX;

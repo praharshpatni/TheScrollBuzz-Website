@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Mail, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { Mail, MapPin, Send, CheckCircle, AlertCircle, MessageSquare } from 'lucide-react';
 import './Contact.css';
 import {
   FaInstagram,
@@ -137,6 +137,7 @@ export default function Contact() {
   const contactInfo = [
     { Icon: Mail, label: 'Email', value: 'info@thescrollbuzz.in', href: 'mailto:info@thescrollbuzz.in' },
     { Icon: MapPin, label: 'Location', value: 'Vadodara, Gujarat, INDIA.' },
+    { Icon: MessageSquare, label: 'Contact Us', value: '+91-9328839591' },
   ];
 
   return (
@@ -145,10 +146,10 @@ export default function Contact() {
       ref={sectionRef}
       className="contact"
     >
-      <div className="contact-background">
+      {/* <div className="contact-background">
         <div className="contact-glow contact-glow-left"></div>
         <div className="contact-glow contact-glow-right"></div>
-      </div>
+      </div> */}
 
       <div className="contact-container">
         <div className={`contact-header ${isVisible ? 'visible' : ''}`}>
