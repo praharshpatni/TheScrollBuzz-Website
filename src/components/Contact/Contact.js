@@ -136,7 +136,7 @@ export default function Contact() {
 
   const contactInfo = [
     { Icon: Mail, label: 'Email', value: 'info@thescrollbuzz.in', href: 'mailto:info@thescrollbuzz.in' },
-    { Icon: MapPin, label: 'Location', value: 'Vadodara, Gujarat, INDIA.' },
+    { Icon: MapPin, label: 'Location', value: 'SF-35, Shree Siddheshwar plaza,New VIP Rd, nr. Sakar Complex, Sheshnarayan Society,Vadodara, Gujarat, 390019' },
     { Icon: MessageSquare, label: 'Contact Us', value: '+91-9328839591' },
   ];
 

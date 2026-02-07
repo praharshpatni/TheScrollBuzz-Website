@@ -91,6 +91,7 @@
   font-weight: 600;
   letter-spacing: 0.04em;
   position: relative;
+  margin-bottom: 1rem;
 }
 
 .footer-links-title::after,

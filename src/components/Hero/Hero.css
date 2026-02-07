@@ -73,7 +73,10 @@
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 1rem;
+    /* font-family: 'TheScrollBuzz', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; */
+    font-family: "Roboto", sans-serif;
     background: linear-gradient(90deg,
+
         #111827,
         #FF7A00);
     -webkit-background-clip: text;
