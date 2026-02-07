@@ -65,7 +65,7 @@
   .hero-title-wrapper {
     overflow: hidden;
     margin-bottom: 2rem;
-    animation: fadeInDown 1s ease-out;
+    animation: fadeInDown 1s cubic-bezier(.05, .72, .97, .43);
   }
 
   .hero-title {
@@ -100,6 +100,7 @@
   }
 
   .hero-subtitle {
+    overflow: hidden;
     font-size: 1.5rem;
     color: #374151;
     margin-bottom: 3rem;
