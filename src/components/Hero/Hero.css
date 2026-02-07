@@ -79,7 +79,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    animation: gradient 8s ease infinite, toTop 300ms 5.5s linear forwards;
+    animation: gradient 8s ease infinite, toTop 500ms 4.5s linear forwards;
   }
 
   @keyframes toTop {
@@ -198,11 +198,7 @@
     padding: 0;
   }
 
-  /* @media screen and (max-width : 480px) {
-    
-  } */
-
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     .hero-subtitle {
       font-size: 2.25rem;
     }
@@ -212,7 +208,7 @@
     }
   }
 
-  @media (min-width: 1024px) {
+  @media screen and (min-width: 1024px) {
     .hero-title {
       font-size: 6rem;
     }
