@@ -1,4 +1,4 @@
-.about {
+/* .about {
   position: relative;
   padding: 6rem 0;
   background: #FFFFFF;
@@ -272,4 +272,314 @@
 
 .about-card-glow-blue {
   background-color: rgba(59, 130, 246, 0.3);
+}
+   */
+/* About.css — redesigned */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+
+.about {
+  position: relative;
+  padding: 7rem 0;
+  background: #fff;
+  overflow: hidden;
+  z-index: 999;
+}
+
+/* Dot grid texture */
+.about-bg-pattern {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: radial-gradient(circle, rgba(255, 122, 0, 0.12) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 30%, rgba(0, 0, 0, 0.5) 70%, transparent 100%);
+}
+
+.about-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Header */
+.about-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.about-header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-eyebrow {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #FF7A00;
+  background: rgba(255, 122, 0, 0.08);
+  border: 1px solid rgba(255, 122, 0, 0.2);
+  border-radius: 9999px;
+  padding: 5px 14px;
+  margin-bottom: 1.2rem;
+}
+
+.about-title {
+  /* font-family: 'Syne', sans-serif; */
+  font-family: 'General Sans', sans-serif;
+
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  background: linear-gradient(90deg,
+      var(--text-dark),
+      var(--brand-orange));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* color: #111; */
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.about-divider {
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(to right, #FF7A00, #FFA940);
+  border-radius: 9999px;
+  margin: 0 auto 1.5rem;
+}
+
+.about-description {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.05rem;
+  color: #555;
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* Values grid */
+.about-values-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 4rem;
+}
+
+@media (max-width: 640px) {
+  .about-values-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-values-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.about-value-card {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 1.8rem 1.4rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.3s, box-shadow 0.3s;
+}
+
+.about-value-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-value-card:hover {
+  border-color: rgba(255, 122, 0, 0.3);
+  box-shadow: 0 12px 32px rgba(255, 122, 0, 0.08);
+}
+
+.value-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #FF7A00, #FFA940);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  margin-bottom: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.about-value-card:hover .value-icon-wrap {
+  transform: rotate(-8deg) scale(1.1);
+}
+
+.value-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 0.6rem;
+}
+
+.value-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  color: #666;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* Process */
+.about-process {
+  margin-bottom: 3.5rem;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+}
+
+.about-process.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.process-heading {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.process-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+@media (min-width: 768px) {
+  .process-steps {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.process-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  position: relative;
+}
+
+.process-step-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #FF7A00;
+  background: rgba(255, 122, 0, 0.1);
+  border: 1.5px solid rgba(255, 122, 0, 0.3);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  margin-bottom: 1rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+.process-step:hover .process-step-num {
+  background: #FF7A00;
+  color: #fff;
+}
+
+/* Horizontal connector line */
+.process-connector {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .process-connector {
+    display: block;
+    position: absolute;
+    top: 22px;
+    left: calc(50% + 22px);
+    right: calc(-50% + 22px);
+    height: 1px;
+    background: linear-gradient(to right, rgba(255, 122, 0, 0.4), rgba(255, 122, 0, 0.1));
+    z-index: 0;
+  }
+
+  .process-step:last-child .process-connector {
+    display: none;
+  }
+}
+
+.process-step-body {
+  padding: 0 0.75rem;
+}
+
+.process-step-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 0.4rem;
+}
+
+.process-step-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  color: #777;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* Achievements strip */
+.about-achievements {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 1.5rem 2rem;
+  background: #FAFAF8;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s;
+}
+
+.about-achievements.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.achievement-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  color: #444;
+  font-weight: 500;
+}
+
+.achievement-icon {
+  color: #FF7A00;
+  flex-shrink: 0;
 }

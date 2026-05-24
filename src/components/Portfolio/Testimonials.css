@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+/* ─── Section ──────────────────────────────── */
+.tm-section {
+    padding: 5rem 0 3rem;
+    background: #fff;
+    overflow: hidden;
+    contain: layout style;
+}
+
+/* ─── SR-only accessible list ──────────────── */
+.tm-sr-list {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    list-style: none;
+}
+
+/* ─── Header ───────────────────────────────── */
+.tm-header {
+    text-align: center;
+    padding: 0 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.tm-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: #FF7A00;
+    margin-bottom: 0.9rem;
+}
+
+.tm-eyebrow__dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #FF7A00;
+}
+
+.tm-headline {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+    font-weight: 800;
+    color: #111;
+    line-height: 1.2;
+    margin: 0 0 0.4rem;
+}
+
+.tm-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: #999;
+    font-weight: 300;
+    margin: 0;
+}
+
+/* ─── Track wrapper ────────────────────────── */
+.tm-track-wrap {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* Edge fade masks */
+.tm-track-wrap::before,
+.tm-track-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 140px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.tm-track-wrap::before {
+    left: 0;
+    background: linear-gradient(to right, #fff 30%, transparent 100%);
+}
+
+.tm-track-wrap::after {
+    right: 0;
+    background: linear-gradient(to left, #fff 30%, transparent 100%);
+}
+
+/* ─── Track ────────────────────────────────── */
+.tm-track {
+    /*
+    CRITICAL: display flex + width max-content
+    This ensures the browser measures the real full width
+    of all items before the animation starts.
+    Never use a fixed width here.
+  */
+    display: flex;
+    width: max-content;
+    gap: 14px;
+    padding: 4px 0 40px;
+
+    /*
+    GPU-only compositing.
+    translateX touches neither layout nor paint —
+    it runs entirely on the compositor thread.
+  */
+    will-change: transform;
+}
+
+/*
+  HOW THE SEAMLESS LOOP WORKS:
+  ─────────────────────────────
+  We render 4 copies of the items array.
+  Total track width = 4N (where N = one full set width).
+
+  The animation moves translateX from 0 → -25%.
+  -25% of 4N = exactly -1N (one full set).
+
+  When the animation resets from -25% back to 0,
+  the visual jump is from "end of copy 1" back to
+  "start of copy 1" — which look identical because
+  they ARE identical. The reset happens while those
+  pixels are off-screen to the left.
+
+  Why 4 copies instead of 2?
+  With 2 copies: -50% jump. On wide viewports, if the
+  single set is narrower than the viewport, the reset
+  becomes visible. 4 copies guarantees the set is always
+  at least 2× the viewport width, so the reset is always
+  safely off-screen.
+*/
+
+.tm-track--ltr {
+    animation: tmLTR 35s linear infinite;
+}
+
+.tm-track--rtl {
+    animation: tmRTL 30s linear infinite;
+}
+
+/* Pause on hover so users can read */
+.tm-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes tmLTR {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-25%);
+    }
+}
+
+@keyframes tmRTL {
+    from {
+        transform: translateX(-25%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* ─── Card ─────────────────────────────────── */
+.tm-card {
+    flex-shrink: 0;
+    width: 290px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    padding: 1.25rem 1.3rem;
+    /* Pointer events so hover pause works */
+    cursor: default;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tm-card:hover {
+    border-color: rgba(255, 122, 0, 0.3);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.07);
+}
+
+.tm-card__stars {
+    color: #FF7A00;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 0.7rem;
+}
+
+.tm-card__quote {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.86rem;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.72;
+    color: #555;
+    margin-bottom: 1rem;
+    /*
+    Line clamp keeps all cards the same height.
+    Without this, tall quotes make rows visually uneven.
+  */
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.tm-card__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.tm-card__name {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #111;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.tm-card__role {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    color: #aaa;
+    margin: 2px 0 0;
+}
+
+.tm-card__tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: #FF7A00;
+    background: rgba(255, 122, 0, 0.08);
+    border-radius: 4px;
+    padding: 3px 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* ─── Reduced motion ───────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    .tm-track {
+        animation: none !important;
+        /* Show items in a wrapping flex grid instead */
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 0 1.5rem;
+    }
+}

@@ -1,6 +1,5 @@
-.footer {
+/* .footer {
   position: relative;
-  /* background-color: #000; */
   background:
     radial-gradient(circle at 50% 100%,
       rgba(255, 122, 0, 0.12),
@@ -202,6 +201,327 @@
   padding: 0;
   font-size: 0.875rem;
   transition: color 0.3s ease;
+}
+
+.footer-legal-link:hover {
+  color: #FF7A00;
+} */
+/* Footer.css — redesigned */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+
+.footer {
+  position: relative;
+  background: #0C0C0A;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.footer-glow {
+  position: absolute;
+  width: 600px;
+  height: 300px;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse, rgba(255, 122, 0, 0.12), transparent 70%);
+  pointer-events: none;
+}
+
+.footer-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* CTA band */
+.footer-cta-band {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 2.5rem 2rem;
+  margin: 3rem 0;
+  background: linear-gradient(135deg, rgba(255, 122, 0, 0.12), rgba(255, 169, 64, 0.06));
+  border: 1px solid rgba(255, 122, 0, 0.2);
+  border-radius: 20px;
+}
+
+.footer-cta-text h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 4px;
+}
+
+.footer-cta-text p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+}
+
+.footer-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #FF7A00, #FFA940);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 6px 20px rgba(255, 122, 0, 0.35);
+  transition: all 0.3s;
+}
+
+.footer-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(255, 122, 0, 0.45);
+}
+
+/* Grid */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+@media (min-width: 640px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr 1.4fr;
+  }
+}
+
+/* Brand */
+.footer-brand {}
+
+.footer-logo {
+  cursor: pointer;
+  margin-bottom: 1.2rem;
+  display: inline-block;
+}
+
+.footer-logo img {
+  height: 44px;
+  transition: transform 0.3s;
+}
+
+.footer-logo:hover img {
+  transform: translateY(-2px);
+}
+
+.footer-brand-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.8;
+  margin-bottom: 0.75rem;
+  font-weight: 300;
+}
+
+.footer-tagline {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  color: rgba(255, 122, 0, 0.6);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-social-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s;
+}
+
+.footer-social-btn:hover {
+  background: rgba(255, 122, 0, 0.15);
+  border-color: rgba(255, 122, 0, 0.4);
+  color: #FF7A00;
+  transform: translateY(-2px);
+}
+
+/* Columns */
+.footer-col {}
+
+.footer-col-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.04em;
+  margin-bottom: 1.2rem;
+  position: relative;
+  padding-bottom: 0.6rem;
+}
+
+.footer-col-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 20px;
+  height: 2px;
+  background: #FF7A00;
+  border-radius: 9999px;
+}
+
+.footer-col-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: color 0.3s;
+  text-align: left;
+}
+
+.footer-link:hover {
+  color: #FF7A00;
+}
+
+.footer-link-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 122, 0, 0.4);
+  flex-shrink: 0;
+  transition: background 0.3s;
+}
+
+.footer-link:hover .footer-link-dot {
+  background: #FF7A00;
+}
+
+/* Contact list */
+.footer-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.5;
+}
+
+.footer-contact-icon {
+  color: #FF7A00;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.footer-contact-link {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-contact-link:hover {
+  color: #FF7A00;
+}
+
+/* Bottom */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.5rem 0 2.5rem;
+}
+
+.footer-copy {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-heart {
+  animation: heartbeat 2.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.footer-legal {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-legal-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  transition: color 0.3s;
 }
 
 .footer-legal-link:hover {
