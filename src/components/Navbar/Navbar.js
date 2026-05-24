@@ -216,7 +216,7 @@ export default function Navbar({ sections }) {
           </div>
 
           {/* Desktop nav links */}
-          <ul className="navbar-links" role="list">
+          <ul className="navbar-links">
             {NAV_LINKS.map((link) => {
               const isActive = link.path && location.pathname === link.path;
               return (
