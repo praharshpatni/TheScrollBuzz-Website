@@ -79,7 +79,7 @@
 }
 
 .svc-h2 {
-    font-family: var(--font-display);
+    font-family: 'DM Sans', sans-serif;
     font-size: clamp(1.9rem, 4vw, 3rem);
     font-weight: 800;
     color: var(--ink);
@@ -319,7 +319,7 @@
 }
 
 .svc-hero__h1 {
-    font-family: var(--font-display);
+    font-family: 'DM Sans', sans-serif;
     font-size: clamp(2.8rem, 6.5vw, 5.2rem);
     font-weight: 800;
     color: #fff;
@@ -568,7 +568,7 @@
 }
 
 .svc-detail__h2 {
-    font-family: var(--font-display);
+    font-family: 'DM Sans', sans-serif;
     font-size: clamp(1.7rem, 3.2vw, 2.5rem);
     font-weight: 800;
     color: var(--ink);
@@ -1063,7 +1063,7 @@
 }
 
 .svc-cta__h2 {
-    font-family: var(--font-display);
+    font-family: 'DM Sans', sans-serif;
     font-size: clamp(2rem, 5vw, 3.8rem);
     font-weight: 800;
     color: #fff;

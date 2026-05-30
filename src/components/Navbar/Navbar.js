@@ -152,7 +152,7 @@ const NAV_LINKS = [
   { id: 'about', label: 'About', path: '/about' },
   { id: 'services', label: 'Services', path: '/services' },
   { id: 'portfolio', label: 'Portfolio', path: '/portfolio' },
-  { id: 'contact', label: 'Contact', path: null },   // scroll-only
+  { id: 'contact', label: 'Contact', path: '/contact' },
 ];
 
 export default function Navbar({ sections }) {

@@ -94,7 +94,7 @@
 }
 
 .ab-h2 {
-    font-family: var(--font-display);
+    font-family: 'DM Sans', sans-serif;
     font-size: clamp(1.9rem, 4vw, 3.2rem);
     font-weight: 800;
     color: var(--ink);
@@ -386,7 +386,7 @@
 }
 
 .ab-hero__h1 {
-    font-family: var(--font-display);
+    font-family: 'DM Sans', sans-serif;
     font-size: clamp(3rem, 6.5vw, 5.5rem);
     font-weight: 800;
     color: #FFFFFF;
@@ -1375,7 +1375,7 @@
 }
 
 .ab-cta__h2 {
-    font-family: var(--font-display);
+    font-family: 'DM Sans', sans-serif;
     font-size: clamp(2.2rem, 5vw, 4rem);
     font-weight: 800;
     color: #FFFFFF;

@@ -334,8 +334,7 @@
 
 .about-title {
   /* font-family: 'Syne', sans-serif; */
-  font-family: 'General Sans', sans-serif;
-
+  font-family: 'DM Sans', sans-serif;
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 800;
   background: linear-gradient(90deg,

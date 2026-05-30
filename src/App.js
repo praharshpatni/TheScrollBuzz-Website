@@ -1,8 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
+import "./analytics";
 import Home from "./components/Home/Home";
-// import About from "./components/About/About";
-// import Services from "./components/Services/Services";
 import Contact from "./components/Contact/Contact";
 // import Portfolio from "./components/Portfolio/Portfolio";
 
