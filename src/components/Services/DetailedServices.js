@@ -424,7 +424,7 @@ function FAQItem({ q, a, i }) {
 /* ─── Main Component ──────────────────────────────────────── */
 export default function DetailedServices() {
     const [heroRef, heroVisible] = useReveal(0.05);
-    const [statsRef, statsVisible] = useReveal(0.1);
+    // const [statsRef, statsVisible] = useReveal(0.1);
     const [gridRef, gridVisible] = useReveal(0.05);
     const [whyRef, whyVisible] = useReveal(0.08);
     const [faqRef, faqVisible] = useReveal(0.08);
@@ -493,7 +493,7 @@ export default function DetailedServices() {
                     </div>
 
                     {/* Trust bar */}
-                    <div className={`svc-hero__trust ${heroVisible ? 'sv--in' : ''}`}>
+                    {/* <div className={`svc-hero__trust ${heroVisible ? 'sv--in' : ''}`}>
                         {[
                             { val: '150+', label: 'Brands Served' },
                             { val: '4.2×', label: 'Avg ROAS' },
@@ -505,14 +505,14 @@ export default function DetailedServices() {
                                 <span>{t.label}</span>
                             </div>
                         ))}
-                    </div>
+                    </div> */}
                 </div>
             </section>
 
             {/* ══════════════════════════════
           2. STATS BAND
       ══════════════════════════════ */}
-            <div className="svc-stats-band" ref={statsRef} aria-label="Key performance metrics">
+            {/* <div className="svc-stats-band" ref={statsRef} aria-label="Key performance metrics">
                 {[
                     { val: '150+', sub: 'Active Brand Clients' },
                     { val: '3.2M+', sub: 'Monthly Reach Managed' },
@@ -528,7 +528,7 @@ export default function DetailedServices() {
                         <span>{s.sub}</span>
                     </div>
                 ))}
-            </div>
+            </div> */}
 
             {/* ══════════════════════════════
           3. SERVICE DETAIL SECTIONS
@@ -568,14 +568,14 @@ export default function DetailedServices() {
                                     <p className="svc-detail__long">{svc.longDesc}</p>
 
                                     {/* Stats row */}
-                                    <div className="svc-detail__stats" aria-label={`${svc.title} performance metrics`}>
+                                    {/* <div className="svc-detail__stats" aria-label={`${svc.title} performance metrics`}>
                                         {svc.stats.map(st => (
                                             <div key={st.label} className="svc-detail__stat">
                                                 <strong style={{ color: svc.color }}>{st.val}</strong>
                                                 <span>{st.label}</span>
                                             </div>
                                         ))}
-                                    </div>
+                                    </div> */}
 
                                     {/* Features */}
                                     <h3 className="svc-detail__feat-heading">What's included</h3>
