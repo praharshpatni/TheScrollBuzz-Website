@@ -11,6 +11,7 @@ import {
     MapPin, Mail, Phone, Star, ChevronDown
 } from 'lucide-react';
 import './DetailedAbout.css';
+import Navbar from "./../Navbar/Navbar";
 
 /* ─── Intersection Observer hook ─────────────────────────── */
 function useReveal(threshold = 0.12) {
@@ -197,6 +198,7 @@ export default function About() {
 
     return (
         <div className="about-page">
+            <Navbar />
 
             {/* ══════════════════════════════
           1. HERO
@@ -214,11 +216,11 @@ export default function About() {
 
                 <div className={`ab-hero__left ${heroVisible ? 'ab--in' : ''}`}>
                     {/* Breadcrumb nav */}
-                    <nav className="ab-breadcrumb" aria-label="Breadcrumb navigation">
+                    {/* <nav className="ab-breadcrumb" aria-label="Breadcrumb navigation">
                         <Link to="/" className="ab-breadcrumb__link">Home</Link>
                         <span aria-hidden="true"> › </span>
                         <span aria-current="page">About</span>
-                    </nav>
+                    </nav> */}
 
                     <div className="ab-hero__tag" aria-hidden="true">
                         <span className="ab-hero__tag-dot" />

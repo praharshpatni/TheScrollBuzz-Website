@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./DetailedPortfolio.css";
 import Testimonials from "./Testimonials";
+import Navbar from "./../Navbar/Navbar";
 
 /* ─────────────────────────────────────────────
    MOCK DATA  — swap src values for real imports
    ───────────────────────────────────────────── */
-const CATEGORIES = ["All", "Social Media", "Branding", "Content", "Campaigns", "SEO"];
+// const CATEGORIES = ["All", "Social Media", "Branding", "Content", "Campaigns", "SEO"];
 
 const PROJECTS = [
     {
@@ -106,12 +107,12 @@ const PROJECTS = [
     },
 ];
 
-const STATS = [
-    { value: "120+", label: "Brands Served" },
-    { value: "₹15 Cr+", label: "Revenue Generated" },
-    { value: "300M+", label: "Impressions Delivered" },
-    { value: "98%", label: "Client Retention" },
-];
+// const STATS = [
+//     { value: "120+", label: "Brands Served" },
+//     { value: "₹15 Cr+", label: "Revenue Generated" },
+//     { value: "300M+", label: "Impressions Delivered" },
+//     { value: "98%", label: "Client Retention" },
+// ];
 
 /* ─────────────────────────────────────────────
    TINY HELPERS
@@ -133,23 +134,23 @@ function useInView(threshold = 0.15) {
 /* ─────────────────────────────────────────────
    SUBCOMPONENTS
    ───────────────────────────────────────────── */
-function StatBar() {
-    const [ref, visible] = useInView(0.2);
-    return (
-        <div className="pf-stats" ref={ref} aria-label="Key statistics">
-            {STATS.map((s, i) => (
-                <div
-                    key={s.label}
-                    className={`pf-stat ${visible ? "pf-stat--in" : ""}`}
-                    style={{ "--delay": `${i * 0.12}s` }}
-                >
-                    <span className="pf-stat__value">{s.value}</span>
-                    <span className="pf-stat__label">{s.label}</span>
-                </div>
-            ))}
-        </div>
-    );
-}
+// function StatBar() {
+//     const [ref, visible] = useInView(0.2);
+//     return (
+//         <div className="pf-stats" ref={ref} aria-label="Key statistics">
+//             {STATS.map((s, i) => (
+//                 <div
+//                     key={s.label}
+//                     className={`pf-stat ${visible ? "pf-stat--in" : ""}`}
+//                     style={{ "--delay": `${i * 0.12}s` }}
+//                 >
+//                     <span className="pf-stat__value">{s.value}</span>
+//                     <span className="pf-stat__label">{s.label}</span>
+//                 </div>
+//             ))}
+//         </div>
+//     );
+// }
 
 function ProjectCard({ project, index }) {
     const [ref, visible] = useInView(0.1);
@@ -208,8 +209,8 @@ function ProjectCard({ project, index }) {
    MAIN PAGE
    ───────────────────────────────────────────── */
 export default function PortfolioPage() {
-    const [active, setActive] = useState("All");
-    const filtered = active === "All" ? PROJECTS : PROJECTS.filter((p) => p.category === active);
+    // const [active, setActive] = useState("All");
+    // const filtered = active === "All" ? PROJECTS : PROJECTS.filter((p) => p.category === active);
 
     return (
         <>
@@ -217,6 +218,8 @@ export default function PortfolioPage() {
             {/* <title>Portfolio | The Buzz Agency — Digital Marketing Results</title> */}
 
             <main className="pf-page" id="main-content">
+
+                <Navbar />
 
                 {/* ══ HERO ══════════════════════════════════════════════════ */}
                 <header className="pf-hero" role="banner">
@@ -242,7 +245,7 @@ export default function PortfolioPage() {
                         </p>
 
                         {/* Schema breadcrumb hint */}
-                        <nav aria-label="Breadcrumb" className="pf-hero__breadcrumb">
+                        {/* <nav aria-label="Breadcrumb" className="pf-hero__breadcrumb">
                             <ol itemScope itemType="https://schema.org/BreadcrumbList">
                                 <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
                                     <a itemProp="item" href="/"><span itemProp="name">Home</span></a>
@@ -253,7 +256,7 @@ export default function PortfolioPage() {
                                     <meta itemProp="position" content="2" />
                                 </li>
                             </ol>
-                        </nav>
+                        </nav> */}
                     </div>
 
                     {/* Decorative ticker */}
@@ -265,9 +268,9 @@ export default function PortfolioPage() {
                 </header>
 
                 {/* ══ STATS ═════════════════════════════════════════════════ */}
-                <section className="pf-section pf-section--stats" aria-label="Agency statistics">
+                {/* <section className="pf-section pf-section--stats" aria-label="Agency statistics">
                     <StatBar />
-                </section>
+                </section> */}
 
                 {/* ══ FILTER + GRID ═════════════════════════════════════════ */}
                 <section className="pf-section" aria-labelledby="projects-heading">
@@ -283,7 +286,7 @@ export default function PortfolioPage() {
                         </div>
 
                         {/* Filter pills */}
-                        <nav className="pf-filter" aria-label="Filter projects by category" role="navigation">
+                        {/* <nav className="pf-filter" aria-label="Filter projects by category" role="navigation">
                             {CATEGORIES.map((cat) => (
                                 <button
                                     key={cat}
@@ -294,7 +297,7 @@ export default function PortfolioPage() {
                                     {cat}
                                 </button>
                             ))}
-                        </nav>
+                        </nav> */}
 
                         {/* Grid */}
                         <div
@@ -303,7 +306,7 @@ export default function PortfolioPage() {
                             aria-label="Portfolio projects"
                             aria-live="polite"
                         >
-                            {filtered.map((p, i) => (
+                            {PROJECTS.map((p, i) => (
                                 <div role="listitem" key={p.id}>
                                     <ProjectCard project={p} index={i} />
                                 </div>

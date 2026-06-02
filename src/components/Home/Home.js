@@ -38,13 +38,20 @@ function Home() {
 
     const lenisRef = useRef();
 
-    const [showScrollbar, setShowScrollbar] = useState(false);
+    const [showScrollbar, setShowScrollbar] = useState(
+        !!sessionStorage.getItem("homeVisited")
+    );
     const [showMouse, setShowMouse] = useState(false);
 
     const textRef = useRef(null);
 
     const [fadeOut, setFadeOut] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
+
+    const [showIntro] = useState(
+        !sessionStorage.getItem("homeVisited")
+    );
+
 
     useEffect(() => {
 
@@ -75,29 +82,73 @@ function Home() {
 
     }, []);
 
+    // useEffect(() => {
+
+    //     const hasVisited = sessionStorage.getItem("homeVisited");
+
+    //     if (hasVisited) {
+    //         setShowScrollbar(true);
+    //         return;
+    //     }
+
+    //     sessionStorage.setItem("homeVisited", "true");
+
+    //     const timer = setTimeout(() => {
+    //         setShowScrollbar(true);
+    //     }, 5500);
+
+    //     return () => clearTimeout(timer);
+
+    // }, []);
+
+    // useEffect(() => {
+
+    //     const textCompleteTime = 3000;
+
+    //     setTimeout(() => {
+    //         setShowMouse(true);
+    //     }, textCompleteTime);
+
+    //     const fadeDelay = textCompleteTime + 1500;
+
+    //     setTimeout(() => {
+    //         setFadeOut(true);
+    //     }, fadeDelay);
+
+    // }, []);
+
     useEffect(() => {
 
-        setTimeout(() => {
-            setShowScrollbar(true)
+        if (!showIntro) return;
+
+        sessionStorage.setItem("homeVisited", "true");
+
+        const timer = setTimeout(() => {
+            setShowScrollbar(true);
         }, 5500);
 
-    });
+        return () => clearTimeout(timer);
+
+    }, [showIntro]);
 
     useEffect(() => {
 
-        const textCompleteTime = 3000;
+        if (!showIntro) return;
 
-        setTimeout(() => {
+        const mouseTimer = setTimeout(() => {
             setShowMouse(true);
-        }, textCompleteTime);
+        }, 3000);
 
-        const fadeDelay = textCompleteTime + 1500;
-
-        setTimeout(() => {
+        const fadeTimer = setTimeout(() => {
             setFadeOut(true);
-        }, fadeDelay);
+        }, 4500);
 
-    }, []);
+        return () => {
+            clearTimeout(mouseTimer);
+            clearTimeout(fadeTimer);
+        };
+
+    }, [showIntro]);
 
     const handleScroll = useCallback(() => {
 
@@ -146,26 +197,28 @@ function Home() {
 
     return (
         <>
-            <div className={`abs_ani_con ${showScrollbar ? "show-scrollbar" : "hide-scrollbar"} ${fadeOut ? 'fade-out' : ''}`}>
+            {showIntro && (
+                <div className={`abs_ani_con ${showScrollbar ? "show-scrollbar" : "hide-scrollbar"} ${fadeOut ? 'fade-out' : ''}`}>
 
-                <TextRoller
-                    finalText="The Scroll Buzz"
-                    duration={60}
-                    ref={textRef}
-                />
-
-                <div className={`mouse-wrapper ${showMouse ? 'visible' : ''}`}>
-                    <img
-                        src={mouse}
-                        alt="Scroll prompt"
-                        className="mouse-icon"
+                    <TextRoller
+                        finalText="The Scroll Buzz"
+                        duration={60}
+                        ref={textRef}
                     />
+
+                    <div className={`mouse-wrapper ${showMouse ? 'visible' : ''}`}>
+                        <img
+                            src={mouse}
+                            alt="Scroll prompt"
+                            className="mouse-icon"
+                        />
+                    </div>
+
+                    <div className="absolute_animation_container_left"></div>
+                    <div className="absolute_animation_container_right"></div>
+
                 </div>
-
-                <div className="absolute_animation_container_left"></div>
-                <div className="absolute_animation_container_right"></div>
-
-            </div>
+            )}
 
             {showScrollbar && (
                 <ScrollNav

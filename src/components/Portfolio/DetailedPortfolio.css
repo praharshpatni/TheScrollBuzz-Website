@@ -23,7 +23,6 @@
 }
 
 /* ── Reset helpers ── */
-.pf-page *,
 .pf-page *::before,
 .pf-page *::after {
     box-sizing: border-box;
@@ -481,7 +480,7 @@
 }
 
 .pf-card__title {
-    font-family: 'Syne', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-weight: 800;
     font-size: 1.1875rem;
     color: var(--text-dark);

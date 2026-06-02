@@ -13,6 +13,7 @@ import {
     MousePointer, Layout, Film, Camera
 } from 'lucide-react';
 import './DetailedServices.css';
+import Navbar from "./../Navbar/Navbar";
 
 /* ─── Intersection Observer hook ─────────────────────── */
 function useReveal(threshold = 0.1) {
@@ -436,7 +437,7 @@ export default function DetailedServices() {
 
     return (
         <main className="svc-page">
-
+            <Navbar />
             {/* ══════════════════════════════
           1. HERO
       ══════════════════════════════ */}
@@ -449,11 +450,11 @@ export default function DetailedServices() {
                 </div>
 
                 <div className="svc-hero__inner">
-                    <nav className="svc-breadcrumb" aria-label="Breadcrumb">
+                    {/* <nav className="svc-breadcrumb" aria-label="Breadcrumb">
                         <Link to="/" className="svc-breadcrumb__link">Home</Link>
                         <span aria-hidden="true"> › </span>
                         <span aria-current="page">Services</span>
-                    </nav>
+                    </nav> */}
 
                     <div className={`svc-hero__content ${heroVisible ? 'sv--in' : ''}`}>
                         <div className="svc-hero__tag" aria-hidden="true">

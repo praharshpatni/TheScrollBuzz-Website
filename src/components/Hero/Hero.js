@@ -3,12 +3,11 @@ import React, { useEffect, useRef } from 'react';
 import { ChevronDown, ArrowRight } from 'lucide-react';
 import './Hero.css';
 
-const STATS = [
-  { value: '150+', label: 'Brands Elevated' },
-  { value: '3.2M', label: 'Reach Generated' },
-  { value: '98%', label: 'Client Retention' },
-  { value: '5★', label: 'Average Rating' },
-];
+// const STATS = [
+//   { value: '150+', label: 'Brands Elevated' },
+//   { value: '3.2M', label: 'Reach Generated' },
+//   { value: '5★', label: 'Average Rating' },
+// ];
 
 const TAGS = [
   { label: 'Digital Marketing', icon: '📈' },
@@ -75,11 +74,11 @@ export default function Hero() {
       <div className="hero-glow hero-glow-br" />
 
       {/* Decorative grid lines */}
-      <div className="hero-grid-lines" aria-hidden="true">
+      {/* <div className="hero-grid-lines" aria-hidden="true">
         {Array.from({ length: 5 }).map((_, i) => (
           <div key={i} className="grid-line" style={{ left: `${(i + 1) * 20}%` }} />
         ))}
-      </div>
+      </div> */}
 
       <div className="hero-content">
         {/* Eyebrow badge */}
@@ -106,7 +105,7 @@ export default function Hero() {
             <span
               key={tag.label}
               className="hero-tag"
-              style={{ animationDelay: `${4.8 + i * 0.1}s` }}
+              style={{ animationDelay: `${0.1 + i * 0.1}s` }}
             >
               <span className="tag-icon">{tag.icon}</span>
               {tag.label}
@@ -132,7 +131,7 @@ export default function Hero() {
         </div>
 
         {/* Stats row */}
-        <div className="hero-stats">
+        {/* <div className="hero-stats">
           {STATS.map((s, i) => (
             <React.Fragment key={s.label}>
               <div className="stat-item">
@@ -142,7 +141,7 @@ export default function Hero() {
               {i < STATS.length - 1 && <div className="stat-sep" />}
             </React.Fragment>
           ))}
-        </div>
+        </div> */}
       </div>
 
       <button
